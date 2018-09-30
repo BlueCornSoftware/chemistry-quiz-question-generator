@@ -10,7 +10,7 @@ const randomUniqueElements = require('./lib/randomUniqueElements');
       https://gist.github.com/JakeTheCorn/5fc52b69c1a4d819872a16fd09d6dbe9
 */
 
-module.exports = (element, allData, alreadyUsedOptions) => {
+module.exports = (element, allDataElements, alreadyUsedOptions) => {
   const alreadyUsedNames = alreadyUsedOptions.map(
     alreadyUsedOption => alreadyUsedOption.name
   );
@@ -21,7 +21,7 @@ module.exports = (element, allData, alreadyUsedOptions) => {
 
   const whereElementIsNotCorrectAnswer = item => item.name !== element.name;
 
-  const unused = allData
+  const unused = allDataElements
     .filter(whereElementHasNotAlreadyBeenUsed)
     .filter(whereElementIsNotCorrectAnswer);
 
