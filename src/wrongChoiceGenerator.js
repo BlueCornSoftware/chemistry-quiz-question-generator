@@ -2,7 +2,15 @@
 
 const randomUniqueElements = require('./lib/randomUniqueElements');
 
-module.exports = (element, allData, alreadyUsedOptions) => {
+/*
+  TODO:
+    Make it so we can parameterize business rules.
+
+    for example see:
+      https://gist.github.com/JakeTheCorn/5fc52b69c1a4d819872a16fd09d6dbe9
+*/
+
+module.exports = (element, allDataElements, alreadyUsedOptions) => {
   const alreadyUsedNames = alreadyUsedOptions.map(
     alreadyUsedOption => alreadyUsedOption.name
   );
@@ -13,23 +21,9 @@ module.exports = (element, allData, alreadyUsedOptions) => {
 
   const whereElementIsNotCorrectAnswer = item => item.name !== element.name;
 
-  const unused = allData
+  const unused = allDataElements
     .filter(whereElementHasNotAlreadyBeenUsed)
     .filter(whereElementIsNotCorrectAnswer);
 
-  // let options = Array(3).fill();
-  // options = options.map(opt => {
-  //   return allDataNotUsed[randomIndex(allDataNotUsed)];
-  // });
-  // return options;
   return randomUniqueElements(unused, 3);
-  // let option;
-
-  // for (let i = 0; i < copy.length; i++) {
-  //   option = copy[i];
-  //   allData.find( => {
-  //     alreadyUsedOption.name ===
-  //   })
-  // }
-  // return [1,2,3];
 };
