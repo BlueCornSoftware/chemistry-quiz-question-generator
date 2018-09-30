@@ -40,6 +40,7 @@ describe('A Quiz', () => {
       expect(quiz.questions[0].wrongChoices.length).toBe(3);
     });
   });
+
 });
 
 describe('wrongChoiceGenerator', () => {

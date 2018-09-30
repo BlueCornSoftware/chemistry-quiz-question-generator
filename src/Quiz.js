@@ -15,19 +15,27 @@ class Quiz {
     let alreadyUsedOptions = [];
     let wrongChoices = [];
 
-    this.questions = data.map(el => {
+    this.questions = data.map((el, index) => {
       wrongChoices = wrongChoiceGenerator(el, allData, alreadyUsedOptions);
-      alreadyUsedOptions = [ ...alreadyUsedOptions, wrongChoices ];
+      alreadyUsedOptions = [ ...alreadyUsedOptions, ...wrongChoices ];
 
+      // TODO:
+      //   for some reason calling .reverse() here causes tests to pass. 
+      //   we need more tests that update already Used options
+      //   maybe we need a method to encapsulate updating this value.
+      if (index === 2) {
+        console.log('==============', alreadyUsedOptions);
+        // console.log('==============', alreadyUsedOptions.reverse());
+      }
       return new this.Question({
         correctChoice: el,
         wrongChoices,
         idProp: 'name',
       });
     });
-
-
   }
+
+  
 }
 
 module.exports = Quiz;
