@@ -40,6 +40,10 @@ describe('A Quiz', () => {
       expect(quiz.questions[0].wrongChoices.length).toBe(3);
     });
   });
+  // it('should keep track of already used choices', () => {
+  //   const q = new Quiz({ questions: 10, testData, Question });
+  //   expect(q.)
+  // });
 
 });
 
