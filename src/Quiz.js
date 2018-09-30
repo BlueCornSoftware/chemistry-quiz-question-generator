@@ -22,10 +22,11 @@ class Quiz {
       return new this.Question({
         correctChoice: el,
         wrongChoices,
+        idProp: 'name',
       });
     });
 
-    
+
   }
 }
 
