@@ -10,6 +10,13 @@ describe('A Quiz', () => {
   it('has a number of questions', () => {
     expect(quiz.questions.length).toBe(questions);
   });
+  describe('Number of Questions per quiz', () => {
+    it('cannot exceed the number of available elements', () => {
+      expect(
+        () => new Quiz({ questions: 200, testData, Question })
+      ).toThrow();
+    });
+  });
   it('has an initial score of 0', () => {
     expect(quiz.score).toBe(0);
   });
@@ -21,10 +28,20 @@ describe('A Quiz', () => {
   });
   describe('the .init method', () => {
     quiz.init();
-    it('should store 3 wrong choices for each question', () => {
+    it('should store 3 null wrong choices for each question', () => {
       quiz.questions.forEach(question => {
         expect(question.wrongChoices.length).toBe(3);
+        expect(question.wrongChoices[0]).toBeNull();
       });
     });
+    it(
+      `should store the difference of total elements
+      and already used correct choices in the .wrongChoicePool
+      `, () => {
+        const { elements } = testData.fetch();
+        const elementCount = elements.length;
+        const wrongChoicePoolCount = quiz.wrongChoicePool.length;
+        expect(wrongChoicePoolCount).toBe(elementCount - questions);
+      });
   });
 });
