@@ -7,8 +7,4 @@ describe('Function: randomUniqueElements', () => {
     const elements = randomUniqueElements([], 0);
     expect(elements.length).toBe(0);
   });
-  it('defaults to returning an array of the same length', () => {
-    const elements = randomUniqueElements([1,2,3]);
-    expect(elements.length).toBe(3);
-  });
 });
