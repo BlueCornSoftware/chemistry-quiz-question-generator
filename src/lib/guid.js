@@ -2,12 +2,12 @@
 
 const table = {};
 
-const s4 = () => Math
+const s = () => Math
   .floor((1 + Math.random()) * 0x10000)
   .toString(16)
   .substring(1);
 
-const uuid = () => s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
+const uuid = () => s() + s() + '-' + s() + '-' + s() + '-' + s() + '-' + s() + s() + s();
 
 module.exports = () => {
   let u = uuid();
