@@ -1,11 +1,13 @@
 'use strict';
 
-const wrongChoiceGenerator = require('./wrongChoiceGenerator');
 const arrayShuffle = require('./lib/arrayShuffle');
+
+const guid = require('./lib/guid');
 
 class Quiz {
 
   constructor({ questions, testData, Question, wrongChoicesPerQuestion = 3 }) {
+    this.id = guid();
     const totalElementCount = testData.fetch().elements.length;
     if (questions > totalElementCount) {
       throw new Error('Test cannot be longer than the data it uses');

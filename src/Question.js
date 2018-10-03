@@ -1,7 +1,10 @@
 'use strict';
 
+const guid = require('./lib/guid');
+
 class Question {
   constructor({ correctChoice, wrongChoices, idProp, choicesHaveBeenBuilt }) {
+    this.id = guid()
     this.correctChoice = correctChoice
     this.wrongChoices = wrongChoices
     this.currentPointValue = 100
