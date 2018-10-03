@@ -6,9 +6,13 @@ const Question = require('./Question');
 
 describe('A Quiz', () => {
   const questions = 50;
-  let quiz = new Quiz({ questions, testData, Question });
+  const wrongChoicesPerQuestion = 3;
+  let quiz = new Quiz({ questions, testData, Question, wrongChoicesPerQuestion });
   it('has a number of questions', () => {
     expect(quiz.questions.length).toBe(questions);
+  });
+  it('has a starting currentQuestionIndex of 0', () => {
+    expect(quiz.currentQuestionIndex).toBe(0);
   });
   describe('Number of Questions per quiz', () => {
     it('cannot exceed the number of available elements', () => {
@@ -44,4 +48,36 @@ describe('A Quiz', () => {
         expect(wrongChoicePoolCount).toBe(elementCount - questions);
       });
   });
+
+  describe('the loadNextQuestion method', () => {
+    quiz.init();
+    it('increments the currentQuestionIndex by one', () => {
+      const previous = quiz.currentQuestionIndex;
+      quiz.loadNextQuestion();
+      expect(quiz.currentQuestionIndex).toBe(previous + 1);
+    });
+    it('should decrease the length of the wrong choice pool by the wrongChoicePerQuestion count the first time it is called', () => {
+      let wrongChoicesPerQuestion = 3
+      const q = new Quiz({ questions, testData, Question, wrongChoicesPerQuestion });
+      q.init();
+      const previousLength = q.wrongChoicePool.length;
+      q.loadNextQuestion();
+      expect(
+        q.wrongChoicePool.length
+      ).toBe(previousLength - wrongChoicesPerQuestion)
+    });
+  });
+
+  describe('the calculateSkipsLeft method', () => {
+    it(`should return the number of times the count
+       of wrong choices per question will go into
+       the remaining wrongChoicePool`, () => {
+        expect(
+          quiz.calculateSkipsLeft()
+        ).toBeLessThanOrEqual(
+          quiz.wrongChoicePool.length / quiz.wrongChoicesPerQuestion
+        )
+    });
+  });
+
 });
