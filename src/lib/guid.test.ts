@@ -1,5 +1,4 @@
-
-const guid = require('./guid');
+import guid from './guid';
 
 describe('Function: guid()', () => {
   it('should return a unique string', () => {

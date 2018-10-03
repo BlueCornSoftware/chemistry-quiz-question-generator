@@ -1,10 +1,9 @@
-'use strict';
+import randomUniqueElements from './lib/randomUniqueElements';
+import Choice from './Choice';
 
-const randomUniqueElements = require('./lib/randomUniqueElements');
-const Choice = require('./Choice');
-
-module.exports = (() => {
+export default (() => {
   const choices = allElements().map(el => Choice(el));
+
   return {
     fetch,
     random,

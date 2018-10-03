@@ -1,8 +1,8 @@
 'use strict';
 
-const randomIndex = require('./randomIndex');
+import randomIndex from './randomIndex';
 
-module.exports = (array, length) => {
+export default (array, length?) => {
   let index = 0;
   if (length === undefined) {
     const left = randomIndex(array);

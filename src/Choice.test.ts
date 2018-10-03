@@ -1,4 +1,4 @@
-const Choice = require('./Choice');
+import Choice from './Choice';
 
 describe('A Choice', () => {
   const value = 3;

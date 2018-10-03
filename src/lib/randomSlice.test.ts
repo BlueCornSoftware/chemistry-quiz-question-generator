@@ -1,6 +1,6 @@
 'use strict';
 
-const randomSlice = require('./randomSlice');
+import randomSlice from './randomSlice';
 
 describe('Function: randomSlice', () => {
   it('should return an array of proper length when length specified', () => {

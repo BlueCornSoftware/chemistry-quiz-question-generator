@@ -1,20 +1,21 @@
-'use strict';
+import guid from './lib/guid';
 
-const guid = require('./lib/guid');
+export default class Question {
+  id: string
+  correctChoice: any
+  wrongChoices: any[]
+  currentPointValue: number
+  idProp: string
 
-class Question {
-  constructor({ correctChoice, wrongChoices, idProp, choicesHaveBeenBuilt }) {
+  constructor({ correctChoice, wrongChoices, idProp }) {
     this.id = guid()
     this.correctChoice = correctChoice
     this.wrongChoices = wrongChoices
     this.currentPointValue = 100
     this.idProp = idProp
-    this.choicesHaveBeenBuilt = choicesHaveBeenBuilt
   }
 
   removeWrongChoice(id) {
     this.wrongChoices = this.wrongChoices.filter(wc => wc[this.idProp] !== id)
   }
 }
-
-module.exports = Question

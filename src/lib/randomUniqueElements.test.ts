@@ -1,6 +1,4 @@
-'use strict';
-
-const randomUniqueElements = require('./randomUniqueElements');
+import randomUniqueElements from './randomUniqueElements';
 
 describe('Function: randomUniqueElements', () => {
   it('should return an empty array if given an empty array', () => {

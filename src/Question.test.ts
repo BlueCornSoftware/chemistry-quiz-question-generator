@@ -1,8 +1,8 @@
 'use strict';
 
-const testData = require('./testData');
-const wrongChoiceGenerator = require('./wrongChoiceGenerator');
-const Question = require('./Question');
+import testData from './testData';
+import wrongChoiceGenerator from './wrongChoiceGenerator';
+import Question from './Question';
 
 describe('A Question', () => {
   const { elements } = testData.fetch();
@@ -26,5 +26,4 @@ describe('A Question', () => {
       expect(question.wrongChoices.length).toBe(2);
     });
   });
-
 });

@@ -1,8 +1,6 @@
-'use strict';
+import randomUniqueElements from './lib/randomUniqueElements';
 
-const randomUniqueElements = require('./lib/randomUniqueElements');
-
-module.exports = (element, allElements, alreadyUsedChoices, num) => {
+export default (element, allElements, alreadyUsedChoices, num) => {
   const alreadyUsedNames = alreadyUsedChoices.map(alreadyUsedChoice => alreadyUsedChoice.name);
 
   const whereElementHasNotAlreadyBeenUsed = item => alreadyUsedNames.indexOf(item.name) === -1;

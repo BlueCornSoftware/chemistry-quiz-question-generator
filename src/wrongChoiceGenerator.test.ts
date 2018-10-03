@@ -1,6 +1,5 @@
-'use strict';
-const testData = require('./testData');
-const wrongChoiceGenerator = require('./wrongChoiceGenerator');
+import testData from './testData';
+import wrongChoiceGenerator from './wrongChoiceGenerator';
 
 describe('wrongChoiceGenerator', () => {
   it(
