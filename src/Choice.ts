@@ -1,5 +1,3 @@
-'use strict';
-
 import guid from './lib/guid';
 import { GenericObject } from './types/GenericObject';
 
