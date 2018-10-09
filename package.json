@@ -5,11 +5,15 @@
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/jest",
-    "test:dev": "./node_modules/.bin/jest --watch"
+    "test:dev": "./node_modules/.bin/jest --watch",
+    "build": "tsc --outDir dist src/index.ts --module commonjs"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "bluecornsoftware-functions": "git@github.com:BlueCornSoftware/bluecornsoftware-functions.git#develop"
+  },
   "devDependencies": {
     "@types/jest": "^23.3.3",
     "jest": "^23.6.0",

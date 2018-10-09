@@ -1,5 +1,3 @@
-'use strict';
-
 import arrayShuffle from './arrayShuffle';
 import randomSlice from './randomSlice';
 

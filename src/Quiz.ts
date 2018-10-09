@@ -1,7 +1,7 @@
 import arrayShuffle from './lib/arrayShuffle';
-import guid from './lib/guid';
+import { guid } from 'bluecornsoftware-functions'
 
-export default class Quiz {
+export class Quiz {
   id: string
   testData: any
   questions: any[]
