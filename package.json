@@ -2,7 +2,7 @@
   "name": "quiz-engine",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "./node_modules/.bin/jest",
     "test:dev": "./node_modules/.bin/jest --watch",
